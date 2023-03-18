@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="FilmCell" reuseIdentifier="ReusableCell" id="WmS-KA-26t" customClass="FilmCell" customModule="DiversityFilm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="178" height="274"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zF8-LW-Vkn">
+                <rect key="frame" x="0.0" y="0.0" width="178" height="274"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JZe-3W-psA">
+                        <rect key="frame" x="10" y="10" width="158" height="254"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vL1-ib-qhz">
+                                <rect key="frame" x="0.0" y="0.0" width="158" height="219"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJ1-x7-GhE">
+                                <rect key="frame" x="0.0" y="229" width="158" height="25"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="JZe-3W-psA" firstAttribute="leading" secondItem="zF8-LW-Vkn" secondAttribute="leading" constant="10" id="9Ys-Aa-gAz"/>
+                    <constraint firstItem="JZe-3W-psA" firstAttribute="top" secondItem="zF8-LW-Vkn" secondAttribute="top" constant="10" id="JXF-At-z8a"/>
+                    <constraint firstAttribute="trailing" secondItem="JZe-3W-psA" secondAttribute="trailing" constant="10" id="LWh-o6-3cW"/>
+                    <constraint firstAttribute="bottom" secondItem="JZe-3W-psA" secondAttribute="bottom" constant="10" id="c9z-Hs-N0y"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="388" height="641"/>
+            <connections>
+                <outlet property="filmImageView" destination="vL1-ib-qhz" id="Hpk-4U-wYK"/>
+                <outlet property="filmNameLabel" destination="RJ1-x7-GhE" id="rfK-aj-FbB"/>
+                <outlet property="filmView" destination="JZe-3W-psA" id="Jm2-If-pIW"/>
+            </connections>
+            <point key="canvasLocation" x="-2007.6335877862596" y="-1912.6760563380283"/>
+        </collectionViewCell>
+    </objects>
+</document>
