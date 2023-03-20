@@ -16,6 +16,7 @@ final class FilmCell: UICollectionViewCell {
     let rankLabel = UILabel(frame: CGRect(x: 20, y: 20, width: 0, height: 0))
     let activityIndicator = UIActivityIndicatorView()
     let newImageView = UIImageView()
+    let labelView = UIView()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,30 +41,43 @@ final class FilmCell: UICollectionViewCell {
     }
     
     private func setupImageView(cellWidth: CGFloat) {
+
         filmImageView.translatesAutoresizingMaskIntoConstraints = false
         filmNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        labelView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(filmImageView)
-        contentView.addSubview(filmNameLabel)
-        let labelTopAnchor = filmImageView.bottomAnchor.constraint(equalTo: filmNameLabel.topAnchor, constant: -17)
+//        contentView.addSubview(filmNameLabel)
+        
+        labelView.addSubview(filmNameLabel)
+        contentView.addSubview(labelView)
+        labelView.layer.cornerRadius = 5
+        labelView.clipsToBounds = true
+        
+        let labelTopAnchor = filmImageView.bottomAnchor.constraint(equalTo: filmNameLabel.topAnchor, constant: -10)
         labelTopAnchor.priority = UILayoutPriority(999)
         NSLayoutConstraint.activate([
             filmImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             filmImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            filmImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            filmImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            filmImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            filmImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            
             labelTopAnchor,
-            filmNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            filmNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            filmNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+            
+            labelView.heightAnchor.constraint(equalToConstant: 50),
+            labelView.topAnchor.constraint(equalTo: filmImageView.bottomAnchor, constant: 5),
+            labelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            labelView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            labelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            labelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+
+            filmNameLabel.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
+            filmNameLabel.leadingAnchor.constraint(equalTo: labelView.leadingAnchor, constant: 5),
+            filmNameLabel.trailingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: -5),
+            filmNameLabel.topAnchor.constraint(equalTo: labelView.topAnchor, constant: 10),
+            filmNameLabel.bottomAnchor.constraint(equalTo: labelView.bottomAnchor, constant: -10)
         ])
-        
-//        NSLayoutConstraint.activate([
-//            filmNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            filmNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-//            filmNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
-//        ])
+
         filmImageView.layer.cornerRadius = filmImageView.frame.size.height / 20
-//        filmImageView.addSubview(rankLabel)
     }
     
     func setupNewImage(cellWidth: CGFloat) {

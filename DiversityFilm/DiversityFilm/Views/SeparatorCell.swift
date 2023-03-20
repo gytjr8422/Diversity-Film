@@ -13,7 +13,7 @@ class SeparatorCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .opaqueSeparator
+        self.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
     }
     
     required init?(coder: NSCoder) {

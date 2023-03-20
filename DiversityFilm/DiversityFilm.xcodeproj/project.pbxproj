@@ -20,6 +20,16 @@
 		CEEB05C229C36F7900FCFC5C /* SetupCellsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB05C129C36F7900FCFC5C /* SetupCellsManager.swift */; };
 		CEEB05C429C3764000FCFC5C /* DetailSubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB05C329C3764000FCFC5C /* DetailSubtitleCell.swift */; };
 		CEEB05C629C5816A00FCFC5C /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB05C529C5816A00FCFC5C /* SeparatorCell.swift */; };
+		CEEB05C829C6DD9A00FCFC5C /* DetailCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB05C729C6DD9A00FCFC5C /* DetailCells.swift */; };
+		CEEB05CA29C6F1CF00FCFC5C /* TheaterButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB05C929C6F1CF00FCFC5C /* TheaterButtonCell.swift */; };
+		CEEB05CC29C7080B00FCFC5C /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB05CB29C7080B00FCFC5C /* TheaterViewController.swift */; };
+		CEEB05F629C82D1D00FCFC5C /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB05ED29C82D1D00FCFC5C /* SCDream6.otf */; };
+		CEEB05FA29C82D1D00FCFC5C /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB05F129C82D1D00FCFC5C /* SCDream5.otf */; };
+		CEEB060229C8312600FCFC5C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB05FD29C8312600FCFC5C /* Pretendard-ExtraBold.otf */; };
+		CEEB060329C8312600FCFC5C /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB05FE29C8312600FCFC5C /* Pretendard-Regular.otf */; };
+		CEEB060429C8312600FCFC5C /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB05FF29C8312600FCFC5C /* Pretendard-Light.otf */; };
+		CEEB060529C8312600FCFC5C /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB060029C8312600FCFC5C /* Pretendard-Bold.otf */; };
+		CEEB060629C8312600FCFC5C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB060129C8312600FCFC5C /* Pretendard-Medium.otf */; };
 		CEF392DE29B735A9002CEA99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */; };
 		CEF392ED29B7403E002CEA99 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EC29B7403E002CEA99 /* FirebaseAnalytics */; };
 		CEF392EF29B7403E002CEA99 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EE29B7403E002CEA99 /* FirebaseAuth */; };
@@ -46,6 +56,16 @@
 		CEEB05C129C36F7900FCFC5C /* SetupCellsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCellsManager.swift; sourceTree = "<group>"; };
 		CEEB05C329C3764000FCFC5C /* DetailSubtitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubtitleCell.swift; sourceTree = "<group>"; };
 		CEEB05C529C5816A00FCFC5C /* SeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
+		CEEB05C729C6DD9A00FCFC5C /* DetailCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCells.swift; sourceTree = "<group>"; };
+		CEEB05C929C6F1CF00FCFC5C /* TheaterButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterButtonCell.swift; sourceTree = "<group>"; };
+		CEEB05CB29C7080B00FCFC5C /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
+		CEEB05ED29C82D1D00FCFC5C /* SCDream6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream6.otf; sourceTree = "<group>"; };
+		CEEB05F129C82D1D00FCFC5C /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
+		CEEB05FD29C8312600FCFC5C /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		CEEB05FE29C8312600FCFC5C /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		CEEB05FF29C8312600FCFC5C /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		CEEB060029C8312600FCFC5C /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		CEEB060129C8312600FCFC5C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEF392F429B85B46002CEA99 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEF392F629B86847002CEA99 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -86,6 +106,7 @@
 		CE1B9A7F29B713290090450D /* DiversityFilm */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB05CD29C8254F00FCFC5C /* Fonts */,
 				CEF392F929B969D0002CEA99 /* Views */,
 				CEF392F829B96990002CEA99 /* Controllers */,
 				CE1B9A8029B713290090450D /* AppDelegate.swift */,
@@ -102,11 +123,26 @@
 			path = DiversityFilm;
 			sourceTree = "<group>";
 		};
+		CEEB05CD29C8254F00FCFC5C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB05F129C82D1D00FCFC5C /* SCDream5.otf */,
+				CEEB05ED29C82D1D00FCFC5C /* SCDream6.otf */,
+				CEEB060029C8312600FCFC5C /* Pretendard-Bold.otf */,
+				CEEB05FD29C8312600FCFC5C /* Pretendard-ExtraBold.otf */,
+				CEEB05FF29C8312600FCFC5C /* Pretendard-Light.otf */,
+				CEEB060129C8312600FCFC5C /* Pretendard-Medium.otf */,
+				CEEB05FE29C8312600FCFC5C /* Pretendard-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CEF392F829B96990002CEA99 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				CE1B9A8429B713290090450D /* MainViewController.swift */,
 				CEF392FA29B96A56002CEA99 /* DetailViewController.swift */,
+				CEEB05CB29C7080B00FCFC5C /* TheaterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,6 +156,8 @@
 				CE5FE15029C0D9AA006D8434 /* DetailImageCell.swift */,
 				CEEB05C329C3764000FCFC5C /* DetailSubtitleCell.swift */,
 				CEEB05C529C5816A00FCFC5C /* SeparatorCell.swift */,
+				CEEB05C729C6DD9A00FCFC5C /* DetailCells.swift */,
+				CEEB05C929C6F1CF00FCFC5C /* TheaterButtonCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,11 +229,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEB060529C8312600FCFC5C /* Pretendard-Bold.otf in Resources */,
+				CEEB05F629C82D1D00FCFC5C /* SCDream6.otf in Resources */,
 				CE1B9A8D29B7132A0090450D /* LaunchScreen.storyboard in Resources */,
+				CEEB060229C8312600FCFC5C /* Pretendard-ExtraBold.otf in Resources */,
+				CEEB060429C8312600FCFC5C /* Pretendard-Light.otf in Resources */,
+				CEEB05FA29C82D1D00FCFC5C /* SCDream5.otf in Resources */,
+				CEEB060329C8312600FCFC5C /* Pretendard-Regular.otf in Resources */,
 				CE1B9A9729B72EEE0090450D /* FilmCell.xib in Resources */,
 				CEF392DE29B735A9002CEA99 /* GoogleService-Info.plist in Resources */,
 				CE1B9A8A29B7132A0090450D /* Assets.xcassets in Resources */,
 				CE1B9A8829B713290090450D /* Main.storyboard in Resources */,
+				CEEB060629C8312600FCFC5C /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEB05C829C6DD9A00FCFC5C /* DetailCells.swift in Sources */,
+				CEEB05CA29C6F1CF00FCFC5C /* TheaterButtonCell.swift in Sources */,
 				CEF392F529B85B46002CEA99 /* Constants.swift in Sources */,
+				CEEB05CC29C7080B00FCFC5C /* TheaterViewController.swift in Sources */,
 				CEEB05C229C36F7900FCFC5C /* SetupCellsManager.swift in Sources */,
 				CE5FE14B29BB2177006D8434 /* LoadImageManager.swift in Sources */,
 				CEEB05C429C3764000FCFC5C /* DetailSubtitleCell.swift in Sources */,

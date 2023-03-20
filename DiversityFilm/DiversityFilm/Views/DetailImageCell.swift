@@ -27,12 +27,12 @@ final class DetailImageCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
-        let imageViewHeight = filmImageView.frame.size.height
-        let labelHeight = filmNameLabel.frame.size.height
-        let cellHieght = imageViewHeight + labelHeight
-        return CGSize(width: size.width, height: cellHieght)
-    }
+//    override func sizeThatFits(_ size: CGSize) -> CGSize {
+//        let imageViewHeight = filmImageView.frame.size.height
+//        let labelHeight = filmNameLabel.frame.size.height
+//        let cellHieght = imageViewHeight + labelHeight
+//        return CGSize(width: size.width, height: cellHieght)
+//    }
     
     func setupImageView() {
         
@@ -40,7 +40,8 @@ final class DetailImageCell: UITableViewCell {
         contentView.addSubview(filmImageView)
         NSLayoutConstraint.activate([
             filmImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-            filmImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            filmImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
+            filmImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25),
             filmImageView.widthAnchor.constraint(equalToConstant: 80),
             filmImageView.heightAnchor.constraint(equalToConstant: 80 * 1.4)
         ])
@@ -49,6 +50,7 @@ final class DetailImageCell: UITableViewCell {
     
     func setupLabels() {
         filmNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        filmNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         filmNameLabel.numberOfLines = 2
         
         nationsGenresLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +74,7 @@ final class DetailImageCell: UITableViewCell {
     
     func imageViewCornerRadius() {
         filmImageView.clipsToBounds = true
-        filmImageView.layer.cornerRadius = filmImageView.frame.size.height / 25
+        filmImageView.layer.cornerRadius = filmImageView.frame.size.height / 20
     }
     
     func configure(filmImage: UIImage) {
@@ -84,6 +86,17 @@ final class DetailImageCell: UITableViewCell {
             let labelTextColor = self.setupCellsManager.setupLabelColor(backgroundColor: self.contentView.backgroundColor)
             self.filmNameLabel.textColor = labelTextColor
             self.nationsGenresLabel.textColor = labelTextColor
+            
+            // contentView의 아래쪽만 cornerRadius 주기
+            let contentViewRect = self.contentView.bounds
+            // layer.mask 속성에 적용할 마스크 레이어를 생성
+            let maskLayer = CAShapeLayer()
+            maskLayer.frame = contentViewRect
+            maskLayer.path = UIBezierPath(roundedRect: contentViewRect,
+                                          byRoundingCorners: [.bottomLeft, .bottomRight],
+                                          cornerRadii: CGSize(width: 5, height: 5)).cgPath
+            // contentView의 mask 속성에 마스크 레이어를 할당
+            self.contentView.layer.mask = maskLayer
         }
     }
 }

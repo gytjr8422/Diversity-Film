@@ -59,9 +59,9 @@ final class MainViewController: UIViewController {
             nextVC.filmTitle = selectedCell.filmNameLabel.text
             nextVC.boxOfficeData = boxOfficeData
             nextVC.filmIndexRow = indexPath.row
+            nextVC.backgroundColor = selectedCell.filmNameLabel.backgroundColor
         }
     }
-
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -70,7 +70,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: K.detailSegue, sender: nil)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let boxOfficeData = self.boxOfficeData else { return 0 }
@@ -82,6 +81,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.cellNibIdentifier, for: indexPath) as! FilmCell
         // 셀이 재사용되기 때문에 전의 데이터가 보이지 않도록 하기 위한 초기화
         cell.filmNameLabel.text = ""
+        cell.filmNameLabel.font = UIFont.boldSystemFont(ofSize: 21)
         cell.filmImageView.image = nil
         cell.setupActivityIndicator() // activityIndicator 추가
         cell.rankLabel.text = ""
@@ -92,6 +92,18 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
            let rank = self.boxOfficeData?.boxOfficeResult[indexPath.row].rank,
            let oldAndNew = self.boxOfficeData?.boxOfficeResult[indexPath.row].rankOldAndNew {
             cell.filmNameLabel.text = movieNm
+            if let customFont = UIFont(name: "Pretendard-Medium", size: 20) {
+                cell.filmNameLabel.font = customFont
+                print("-----------")
+            }
+            
+            print("\(movieNm): \(movieNm.count)")
+            if movieNm.count > 20 {
+                if let customFont = UIFont(name: "Pretendard-Medium", size: 16) {
+                    cell.filmNameLabel.font = customFont
+                }
+            }
+            
             cell.rankLabel.text = rank
             loadImageManager.loadImage(url: url) { image in
                 DispatchQueue.main.async {
@@ -102,7 +114,8 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                         cell.activityIndicator.removeFromSuperview()
                         
                         let backgroundColor = cell.filmImageView.image?.averageColor
-                        cell.contentView.backgroundColor = backgroundColor
+                        cell.labelView.backgroundColor = backgroundColor
+//                        cell.contentView.backgroundColor = backgroundColor
 //                        self.labelTextColor = self.setupLabelColor(backgroundColor: backgroundColor)
                         cell.filmNameLabel.textColor = self.setupCellsManager.setupLabelColor(backgroundColor: backgroundColor)
                         if oldAndNew == "NEW" {
@@ -123,7 +136,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     // 스크롤 사이즈 반환
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: filmCollectionView.frame.size.width, height: filmCollectionView.frame.self.height)
+        return CGSize(width: filmCollectionView.frame.size.width, height: filmCollectionView.frame.size.height)
     }
 }
 
