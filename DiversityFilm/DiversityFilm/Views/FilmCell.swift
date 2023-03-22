@@ -17,6 +17,7 @@ final class FilmCell: UICollectionViewCell {
     let activityIndicator = UIActivityIndicatorView()
     let newImageView = UIImageView()
     let labelView = UIView()
+    let noImageLabel = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()

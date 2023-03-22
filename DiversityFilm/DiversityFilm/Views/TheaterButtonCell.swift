@@ -30,22 +30,21 @@ class TheaterButtonCell: UITableViewCell {
 extension TheaterButtonCell {
     func setupTheaterButton() {
         
-        let backgroundColor = UIColor(rgb: 0x7b9acc)
-        let titleColor = UIColor(rgb: 0xFCF6F5)
+//        let backgroundColor = UIColor(rgb: 0x7b9acc)
+//        let titleColor = UIColor(rgb: 0xFCF6F5)
         
         theaterButton.setTitle("상영 영화관 보러가기", for: .normal)
-        theaterButton.setTitleColor(titleColor, for: .normal)
-        theaterButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        theaterButton.backgroundColor = backgroundColor
+//        theaterButton.setTitleColor(titleColor, for: .normal)
+        theaterButton.titleLabel?.font = UIFont(name: "Pretendard-Medium", size: 18)
+//        theaterButton.backgroundColor = backgroundColor
         theaterButton.layer.cornerRadius = 5
-        
         theaterButton.layer.shadowOffset = CGSizeMake(0, 0)
         theaterButton.layer.shadowColor = UIColor.black.cgColor
         theaterButton.layer.shadowOpacity = 0.23
-
+        
         theaterButton.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(theaterButton)
-
+        
         NSLayoutConstraint.activate([
             theaterButton.heightAnchor.constraint(equalToConstant: 50),
             theaterButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -54,14 +53,5 @@ extension TheaterButtonCell {
             theaterButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -90)
         ])
         
-//        theaterButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
-    
-//    @objc func buttonTapped() {
-//
-//        let theaterViewController = TheaterViewController()
-//        let viewController = self.window?.rootViewController
-//
-//        viewController?.navigationController?.pushViewController(theaterViewController, animated: true)
-//    }
 }

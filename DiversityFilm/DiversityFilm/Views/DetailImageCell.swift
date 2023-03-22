@@ -50,11 +50,11 @@ final class DetailImageCell: UITableViewCell {
     
     func setupLabels() {
         filmNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        filmNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        filmNameLabel.font = UIFont(name: "Pretendard-Medium", size: 20)
         filmNameLabel.numberOfLines = 2
         
         nationsGenresLabel.translatesAutoresizingMaskIntoConstraints = false
-        nationsGenresLabel.font = UIFont.systemFont(ofSize: 13)
+        nationsGenresLabel.font = UIFont(name: "Pretendard-Regular", size: 14)
         nationsGenresLabel.numberOfLines = 2
         
         labelStackView.axis = .vertical
@@ -77,15 +77,9 @@ final class DetailImageCell: UITableViewCell {
         filmImageView.layer.cornerRadius = filmImageView.frame.size.height / 20
     }
     
-    func configure(filmImage: UIImage) {
+    func configure(filmImage: UIImage?) {
         DispatchQueue.main.async {
             self.filmImageView.image = filmImage
-            
-            let averageColor = self.filmImageView.image?.averageColor
-            self.contentView.backgroundColor = averageColor
-            let labelTextColor = self.setupCellsManager.setupLabelColor(backgroundColor: self.contentView.backgroundColor)
-            self.filmNameLabel.textColor = labelTextColor
-            self.nationsGenresLabel.textColor = labelTextColor
             
             // contentView의 아래쪽만 cornerRadius 주기
             let contentViewRect = self.contentView.bounds

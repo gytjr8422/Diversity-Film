@@ -59,7 +59,9 @@ final class MainViewController: UIViewController {
             nextVC.filmTitle = selectedCell.filmNameLabel.text
             nextVC.boxOfficeData = boxOfficeData
             nextVC.filmIndexRow = indexPath.row
-            nextVC.backgroundColor = selectedCell.filmNameLabel.backgroundColor
+            nextVC.filmImage = selectedCell.filmImageView.image
+            nextVC.backgroundColor = selectedCell.labelView.backgroundColor
+            nextVC.imageViewTextColor = selectedCell.filmNameLabel.textColor
         }
     }
 }
@@ -86,15 +88,25 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.setupActivityIndicator() // activityIndicator 추가
         cell.rankLabel.text = ""
         cell.newImageView.image = nil
+        cell.noImageLabel.text = ""
+        
+//        cell.filmImageView.layer.shadowOffset = CGSizeMake(0, 0)
+//        cell.filmImageView.layer.shadowColor = UIColor.black.cgColor
+//        cell.filmImageView.layer.shadowOpacity = 0.23
+//
+//        cell.labelView.layer.shadowOffset = CGSizeMake(0, 0)
+//        cell.labelView.layer.shadowColor = UIColor.black.cgColor
+//        cell.labelView.layer.shadowOpacity = 0.23
         
         if let movieNm = self.boxOfficeData?.boxOfficeResult[indexPath.row].movieNm,
            let url = self.boxOfficeData?.boxOfficeResult[indexPath.row].imgURL,
            let rank = self.boxOfficeData?.boxOfficeResult[indexPath.row].rank,
            let oldAndNew = self.boxOfficeData?.boxOfficeResult[indexPath.row].rankOldAndNew {
+            cell.rankLabel.text = rank
+            
             cell.filmNameLabel.text = movieNm
             if let customFont = UIFont(name: "Pretendard-Medium", size: 20) {
                 cell.filmNameLabel.font = customFont
-                print("-----------")
             }
             
             print("\(movieNm): \(movieNm.count)")
@@ -104,26 +116,36 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                 }
             }
             
-            cell.rankLabel.text = rank
-            loadImageManager.loadImage(url: url) { image in
-                DispatchQueue.main.async {
-                    // 셀이 재사용 되기 전에 이미지를 업데이트
-                    // 두번째 셀로 돌아갔을 때 네번째 셀 데이터가 들어가있는 문제 해결
-                    if let cell = collectionView.cellForItem(at: indexPath) as? FilmCell {
-                        cell.filmImageView.image = image
-                        cell.activityIndicator.removeFromSuperview()
-                        
-                        let backgroundColor = cell.filmImageView.image?.averageColor
-                        cell.labelView.backgroundColor = backgroundColor
-//                        cell.contentView.backgroundColor = backgroundColor
-//                        self.labelTextColor = self.setupLabelColor(backgroundColor: backgroundColor)
-                        cell.filmNameLabel.textColor = self.setupCellsManager.setupLabelColor(backgroundColor: backgroundColor)
-                        if oldAndNew == "NEW" {
-                            cell.setupNewImage(cellWidth: cell.frame.size.width)
+            if url == "https://kobis.or.kr/kobis/business/mast/mvie/findDiverMovList.do#" {
+                setupNoImageCell(cell: cell)
+                if oldAndNew == "NEW" {
+                    cell.setupNewImage(cellWidth: cell.frame.size.width)
+                }
+            } else {
+                loadImageManager.loadImage(url: url) { image in
+                    DispatchQueue.main.async {
+                        // 셀이 재사용 되기 전에 이미지를 업데이트
+                        // 두번째 셀로 돌아갔을 때 네번째 셀 데이터가 들어가있는 문제 해결
+                        if let cell = collectionView.cellForItem(at: indexPath) as? FilmCell {
+                            if image == nil {
+                                self.setupNoImageCell(cell: cell)
+                            } else {
+                                cell.filmImageView.image = image
+                                cell.activityIndicator.removeFromSuperview()
+                                
+                                let backgroundColor = cell.filmImageView.image?.averageColor
+                                cell.labelView.backgroundColor = backgroundColor
+                                //                        cell.contentView.backgroundColor = backgroundColor
+                                //                        self.labelTextColor = self.setupLabelColor(backgroundColor: backgroundColor)
+                                cell.filmNameLabel.textColor = self.setupCellsManager.setupLabelColor(backgroundColor: backgroundColor)
+                                if oldAndNew == "NEW" {
+                                    cell.setupNewImage(cellWidth: cell.frame.size.width)
+                                }
+                            }
                         }
                     }
                 }
-            }
+            }            
             print("movieNm: \(movieNm)")
             print("url: \(url)")
             print("oldAndNew: \(oldAndNew)")
@@ -131,6 +153,43 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
     
+}
+
+extension MainViewController {
+    private func setupNoImageCell(cell: FilmCell) {
+        cell.activityIndicator.removeFromSuperview()
+        
+        cell.noImageLabel.numberOfLines = 0
+        if let customFont = UIFont(name: "Pretendard-Medium", size: 20) {
+            cell.noImageLabel.font = customFont
+        }
+        
+        cell.noImageLabel.text = "영화 <\(String(describing: cell.filmNameLabel.text!))>의 포스터를\n불러올 수 없습니다.\n\n화면을 터치하면\n영화 상세정보를 확인할 수 있습니다."
+        
+        if let noImageText = cell.noImageLabel.text {
+            let attrString = NSMutableAttributedString(string: noImageText)
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 4
+            attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+            cell.noImageLabel.attributedText = attrString
+        }
+        
+        cell.noImageLabel.textAlignment = .center
+        cell.noImageLabel.textColor = UIColor(rgb: 0xFCF6F5)
+        cell.filmImageView.addSubview(cell.noImageLabel)
+        cell.noImageLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cell.noImageLabel.centerXAnchor.constraint(equalTo: cell.filmImageView.centerXAnchor),
+            cell.noImageLabel.centerYAnchor.constraint(equalTo: cell.filmImageView.centerYAnchor),
+            cell.noImageLabel.leadingAnchor.constraint(equalTo: cell.filmImageView.leadingAnchor, constant: 40),
+            cell.noImageLabel.trailingAnchor.constraint(equalTo: cell.filmImageView.trailingAnchor, constant: -40)
+        ])
+        
+        cell.filmImageView.image = nil
+        cell.filmImageView.backgroundColor = UIColor(rgb: 0x7b9acc)
+        cell.labelView.backgroundColor = UIColor(rgb: 0x7b9acc)
+        cell.filmNameLabel.textColor = UIColor(rgb: 0xFCF6F5)
+    }
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {

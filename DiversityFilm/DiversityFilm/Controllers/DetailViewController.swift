@@ -19,6 +19,8 @@ final class DetailViewController: UIViewController {
     var filmIndexRow = 0 // mainViewController에서 넘어오는 indexPath.row
     var filmTitle: String?
     var backgroundColor: UIColor?
+    var imageViewTextColor: UIColor?
+    var filmImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ final class DetailViewController: UIViewController {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < 100 {
+        if scrollView.contentOffset.y < 90 {
             title = ""
         } else {
             title = filmTitle
@@ -70,10 +72,11 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = DetailImageCell()
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
-
-            return setupCellsManager.setupImageCell(cell: cell, boxOfficeData: boxOfficeData, indexRow: filmIndexRow, appearance: appearance, navigationItem: self.navigationItem)
+            
+            return setupCellsManager.setupImageCell(cell: cell, boxOfficeData: boxOfficeData, indexRow: filmIndexRow, appearance: appearance, navigationItem: self.navigationItem, image: filmImage, backgroundColor: backgroundColor, imageViewTextColor: imageViewTextColor)
 
         case 3, 5, 7:
             let cell = DetailCells()
@@ -85,6 +88,8 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             let cell = TheaterButtonCell()
+            cell.theaterButton.setTitleColor(imageViewTextColor, for: .normal)
+            cell.theaterButton.backgroundColor = backgroundColor
             cell.theaterButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell
             

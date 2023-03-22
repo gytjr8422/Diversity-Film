@@ -9,9 +9,9 @@ import UIKit
 
 struct SetupCellsManager {
     
-    func setupImageCell(cell: DetailImageCell, boxOfficeData: BoxOfficeModel?, indexRow: Int, appearance: UINavigationBarAppearance, navigationItem: UINavigationItem) -> DetailImageCell {
-        
-        let loadImageManager = LoadImageManager()
+    func setupImageCell(cell: DetailImageCell, boxOfficeData: BoxOfficeModel?, indexRow: Int, appearance: UINavigationBarAppearance, navigationItem: UINavigationItem, image: UIImage?, backgroundColor: UIColor?, imageViewTextColor: UIColor?) -> DetailImageCell {
+
+//        let loadImageManager = LoadImageManager()
         let boxOfficeResult = boxOfficeData?.boxOfficeResult[indexRow]
         
         if let movieNm = boxOfficeResult?.movieNm,
@@ -20,7 +20,7 @@ struct SetupCellsManager {
            let genres = boxOfficeResult?.genres {
             cell.filmNameLabel.text = movieNm
             if movieNm.count > 20 {
-                cell.filmNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+                cell.filmNameLabel.font = UIFont(name: "Pretendard-Medium", size: 17)
             }
             
             // 국가 및 장르 라벨 생성
@@ -29,18 +29,30 @@ struct SetupCellsManager {
             let nationsGenres = nations + " \u{00B7} " + genres
             cell.nationsGenresLabel.text = nationsGenres
             
-            loadImageManager.loadImage(url: url) { image in
-                guard let image = image else { return }
+            if url == "https://kobis.or.kr/kobis/business/mast/mvie/findDiverMovList.do#" || image == nil {
+                cell.imageViewCornerRadius()
+                cell.contentView.backgroundColor = UIColor(rgb: 0x7b9acc)
+                cell.filmNameLabel.textColor = UIColor(rgb: 0xFCF6F5)
+                cell.nationsGenresLabel.textColor = UIColor(rgb: 0xFCF6F5)
+                appearance.backgroundColor = UIColor(rgb: 0x7b9acc)
+                appearance.shadowColor = .clear
+                navigationItem.standardAppearance = appearance
+                navigationItem.scrollEdgeAppearance = appearance
+            } else {
+                cell.contentView.backgroundColor = backgroundColor
+                cell.filmNameLabel.textColor = imageViewTextColor
+                cell.nationsGenresLabel.textColor = imageViewTextColor
+                appearance.backgroundColor = backgroundColor
+                appearance.shadowColor = .clear
+                navigationItem.standardAppearance = appearance
+                navigationItem.scrollEdgeAppearance = appearance
+                
                 cell.configure(filmImage: image)
-
                 DispatchQueue.main.async {
                     // filmImageView의 크기가 정해지고 나서 cornerRadius를 줘야한다.
                     cell.imageViewCornerRadius()
-                    appearance.backgroundColor = cell.contentView.backgroundColor
-                    appearance.shadowColor = .clear
-                    navigationItem.standardAppearance = appearance
-                    navigationItem.scrollEdgeAppearance = appearance
                 }
+                
             }
             
         }
@@ -79,41 +91,17 @@ struct SetupCellsManager {
             cell.layer.shadowOffset = CGSizeMake(0, 0)
             cell.layer.shadowColor = UIColor.gray.cgColor
             cell.layer.shadowOpacity = 0.1
+            
+            if let subTitleText = cell.subtitleLabel.text {
+                let attrString = NSMutableAttributedString(string: subTitleText)
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 4
+                attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+                cell.subtitleLabel.attributedText = attrString
+            }
         }
         return cell
     }
-    
-    //    func setupSubtitleCell(cell: DetailSubtitleCell, boxOfficeData: BoxOfficeModel?, filmIndexRow: Int, cellIndexPathRow: Int) -> DetailSubtitleCell {
-    //
-    //        if let directors = boxOfficeData?.boxOfficeResult[filmIndexRow].directors,
-    //           let actors = boxOfficeData?.boxOfficeResult[filmIndexRow].actors,
-    //           let synopsis = boxOfficeData?.boxOfficeResult[filmIndexRow].synopsis {
-    //            let directors = directors.joined(separator: " \u{00B7} ")
-    //            let actors = actors.joined(separator: " \u{00B7} ")
-    //
-    //            if cellIndexPathRow == 1 {
-    //                cell.textLabel?.text = "감독"
-    //                cell.detailTextLabel?.text = directors
-    //            } else if cellIndexPathRow == 3 {
-    //                cell.textLabel?.text = "배우"
-    //                cell.detailTextLabel?.text = actors
-    //            } else if cellIndexPathRow == 5 {
-    //                cell.textLabel?.text = "줄거리"
-    //                cell.detailTextLabel?.numberOfLines = 0
-    //                cell.detailTextLabel?.text = synopsis
-    //            }
-    //            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-    //            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
-    //
-    //            cell.selectionStyle = .none
-    //            cell.layer.shadowOffset = CGSizeMake(0, 0)
-    //            cell.layer.shadowColor = UIColor.black.cgColor
-    //            cell.layer.shadowOpacity = 0.23
-    //
-    //            return cell
-    //        }
-    //        return DetailSubtitleCell()
-    //    }
  
 }
 

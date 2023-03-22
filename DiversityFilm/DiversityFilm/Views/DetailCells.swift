@@ -26,9 +26,19 @@ class DetailCells: UITableViewCell {
 
 extension DetailCells {
     func setupLabels() {
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        subtitleLabel.font = UIFont.systemFont(ofSize: 15)
+//        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+//        subtitleLabel.font = UIFont.systemFont(ofSize: 15)
+        if let titleCustomFont = UIFont(name: "Pretendard-Bold", size: 17), let subCustomFont = UIFont(name: "Pretendard-Regular", size: 15) {
+            titleLabel.font = titleCustomFont
+            subtitleLabel.font = subCustomFont
+        }
         subtitleLabel.numberOfLines = 0
+        
+//        let attrString = NSMutableAttributedString(string: subtitleLabel.text!)
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.lineSpacing = 4
+//        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+//        subtitleLabel.attributedText = attrString
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false

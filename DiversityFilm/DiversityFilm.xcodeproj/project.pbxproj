@@ -30,6 +30,8 @@
 		CEEB060429C8312600FCFC5C /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB05FF29C8312600FCFC5C /* Pretendard-Light.otf */; };
 		CEEB060529C8312600FCFC5C /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB060029C8312600FCFC5C /* Pretendard-Bold.otf */; };
 		CEEB060629C8312600FCFC5C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB060129C8312600FCFC5C /* Pretendard-Medium.otf */; };
+		CEEB060C29C9A7A000FCFC5C /* RegionSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */; };
+		CEEB060E29CA213400FCFC5C /* RegionSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */; };
 		CEF392DE29B735A9002CEA99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */; };
 		CEF392ED29B7403E002CEA99 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EC29B7403E002CEA99 /* FirebaseAnalytics */; };
 		CEF392EF29B7403E002CEA99 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EE29B7403E002CEA99 /* FirebaseAuth */; };
@@ -66,6 +68,8 @@
 		CEEB05FF29C8312600FCFC5C /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		CEEB060029C8312600FCFC5C /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		CEEB060129C8312600FCFC5C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectViewController.swift; sourceTree = "<group>"; };
+		CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectCell.swift; sourceTree = "<group>"; };
 		CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEF392F429B85B46002CEA99 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEF392F629B86847002CEA99 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				CE1B9A8429B713290090450D /* MainViewController.swift */,
 				CEF392FA29B96A56002CEA99 /* DetailViewController.swift */,
 				CEEB05CB29C7080B00FCFC5C /* TheaterViewController.swift */,
+				CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				CEEB05C529C5816A00FCFC5C /* SeparatorCell.swift */,
 				CEEB05C729C6DD9A00FCFC5C /* DetailCells.swift */,
 				CEEB05C929C6F1CF00FCFC5C /* TheaterButtonCell.swift */,
+				CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 				CEEB05C829C6DD9A00FCFC5C /* DetailCells.swift in Sources */,
 				CEEB05CA29C6F1CF00FCFC5C /* TheaterButtonCell.swift in Sources */,
 				CEF392F529B85B46002CEA99 /* Constants.swift in Sources */,
+				CEEB060E29CA213400FCFC5C /* RegionSelectCell.swift in Sources */,
 				CEEB05CC29C7080B00FCFC5C /* TheaterViewController.swift in Sources */,
 				CEEB05C229C36F7900FCFC5C /* SetupCellsManager.swift in Sources */,
 				CE5FE14B29BB2177006D8434 /* LoadImageManager.swift in Sources */,
@@ -263,6 +270,7 @@
 				CEF392F729B86847002CEA99 /* Model.swift in Sources */,
 				CEEB05C629C5816A00FCFC5C /* SeparatorCell.swift in Sources */,
 				CE1B9A8129B713290090450D /* AppDelegate.swift in Sources */,
+				CEEB060C29C9A7A000FCFC5C /* RegionSelectViewController.swift in Sources */,
 				CE1B9A8329B713290090450D /* SceneDelegate.swift in Sources */,
 				CEF392FB29B96A56002CEA99 /* DetailViewController.swift in Sources */,
 				CE5FE15129C0D9AA006D8434 /* DetailImageCell.swift in Sources */,
