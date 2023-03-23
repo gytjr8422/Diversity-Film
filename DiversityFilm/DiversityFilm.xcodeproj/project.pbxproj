@@ -32,6 +32,7 @@
 		CEEB060629C8312600FCFC5C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEEB060129C8312600FCFC5C /* Pretendard-Medium.otf */; };
 		CEEB060C29C9A7A000FCFC5C /* RegionSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */; };
 		CEEB060E29CA213400FCFC5C /* RegionSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */; };
+		CEEB061029CC2E0A00FCFC5C /* TheaterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060F29CC2E0A00FCFC5C /* TheaterViewCell.swift */; };
 		CEF392DE29B735A9002CEA99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */; };
 		CEF392ED29B7403E002CEA99 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EC29B7403E002CEA99 /* FirebaseAnalytics */; };
 		CEF392EF29B7403E002CEA99 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EE29B7403E002CEA99 /* FirebaseAuth */; };
@@ -70,6 +71,7 @@
 		CEEB060129C8312600FCFC5C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectViewController.swift; sourceTree = "<group>"; };
 		CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectCell.swift; sourceTree = "<group>"; };
+		CEEB060F29CC2E0A00FCFC5C /* TheaterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewCell.swift; sourceTree = "<group>"; };
 		CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEF392F429B85B46002CEA99 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEF392F629B86847002CEA99 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				CEEB05C729C6DD9A00FCFC5C /* DetailCells.swift */,
 				CEEB05C929C6F1CF00FCFC5C /* TheaterButtonCell.swift */,
 				CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */,
+				CEEB060F29CC2E0A00FCFC5C /* TheaterViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEB061029CC2E0A00FCFC5C /* TheaterViewCell.swift in Sources */,
 				CEEB05C829C6DD9A00FCFC5C /* DetailCells.swift in Sources */,
 				CEEB05CA29C6F1CF00FCFC5C /* TheaterButtonCell.swift in Sources */,
 				CEF392F529B85B46002CEA99 /* Constants.swift in Sources */,

@@ -7,6 +7,11 @@
 
 import UIKit
 
+// 데이터가 필요한 곳에서 프로토콜 선언
+protocol RegionSelectViewControllerDelegate {
+    func dismissRegionSelectViewController(selected: String, selectedCellIndex: Int, segmentSelectedIndex: Int?)
+}
+
 final class TheaterViewController: UIViewController, UISheetPresentationControllerDelegate {
     
     private let theaterTableView = UITableView()
@@ -22,6 +27,11 @@ final class TheaterViewController: UIViewController, UISheetPresentationControll
     var boxOfficeData: BoxOfficeModel?
     var filmIndexRow = 0 // mainViewController에서 넘어오는 indexPath.row
     
+    var currentSelectedRegion = "전체"
+    var comingSelectedRegion = "전체"
+    var currentSelectedCellIndex = 0
+    var comingSelectedCellIndex = 0
+    
     @objc func changedLinePosition() {
         theaterTableView.reloadData()
         let segmentIndex = CGFloat(segmentedController.selectedSegmentIndex)
@@ -34,9 +44,11 @@ final class TheaterViewController: UIViewController, UISheetPresentationControll
         }
     }
     
+    // 지역 선택 모달 띄우기
     @objc func buttonTapped() {
         let regionSelectViewController = RegionSelectViewController()
         let navigationController = UINavigationController(rootViewController: regionSelectViewController)
+        regionSelectViewController.delegate = self // 데이터 전달 델리게이트
         
         navigationController.modalPresentationStyle = .pageSheet
         if #available(iOS 15.0, *) {
@@ -44,11 +56,10 @@ final class TheaterViewController: UIViewController, UISheetPresentationControll
                 
                 //지원할 크기 지정
                 sheet.detents = [.medium(), .large()]
-                //크기 변하는거 감지
+                //크기 변화 감지
                 sheet.delegate = self
-                
                 //시트 상단에 그래버 표시 (기본 값은 false)
-                sheet.prefersGrabberVisible = true
+//                sheet.prefersGrabberVisible = true
                 
                 //처음 크기 지정 (기본 값은 가장 작은 크기)
                 //sheet.selectedDetentIdentifier = .large
@@ -57,8 +68,14 @@ final class TheaterViewController: UIViewController, UISheetPresentationControll
                 //sheet.largestUndimmedDetentIdentifier = .medium
             }
         }
+        
         present(navigationController, animated: true)
-        regionSelectViewController.selectedIndex = segmentedController.selectedSegmentIndex
+        
+        regionSelectViewController.segmentSelectedIndex = segmentedController.selectedSegmentIndex
+
+        regionSelectViewController.currentSelectedCellIndex = currentSelectedCellIndex
+        regionSelectViewController.comingSelectedCellIndex = comingSelectedCellIndex
+        
         if segmentedController.selectedSegmentIndex == 0 {
             regionSelectViewController.currentTheaterDict = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater
         } else {
@@ -73,8 +90,13 @@ final class TheaterViewController: UIViewController, UISheetPresentationControll
         view.backgroundColor = .white
         setupSegmentedController()
         
+        theaterTableView.register(TheaterViewCell.self, forCellReuseIdentifier: "theaterViewCell")
+        theaterTableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "header")
         theaterTableView.dataSource = self
         theaterTableView.delegate = self
+        theaterTableView.allowsSelection = false
+        theaterTableView.separatorStyle = .none
+        
         regionSelectButton.translatesAutoresizingMaskIntoConstraints = false
         regionSelectButton.setTitle("  지역별 보기", for: .normal)
         regionSelectButton.setImage(UIImage(named: "burger-menu-2"), for: .normal)
@@ -127,36 +149,118 @@ final class TheaterViewController: UIViewController, UISheetPresentationControll
 extension TheaterViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
+        if segmentedController.selectedSegmentIndex == 1 {
+            if comingSelectedRegion == "전체" {
+                if let comingTheaterCount = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater.count {
+                    return comingTheaterCount
+                }
+            }
+        } else {
+            if currentSelectedRegion == "전체" {
+                if let currentTheaterCount = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater.count {
+                    return currentTheaterCount
+                }
+            }
+        }
         return 1
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
+        if segmentedController.selectedSegmentIndex == 1 {
+            if comingSelectedRegion == "전체" {
+                if let comingTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater {
+                    let regions = comingTheater.keys.sorted()
+                    header?.textLabel?.text = regions[section]
+                }
+            } else {
+                header?.textLabel?.text = comingSelectedRegion
+            }
+        } else {
+            if currentSelectedRegion == "전체" {
+                if let currentTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater {
+                    let regions = currentTheater.keys.sorted()
+                    header?.textLabel?.text = regions[section]
+                }
+            } else {
+                header?.textLabel?.text = currentSelectedRegion
+            }
+        }
+        
+        header?.textLabel?.font = UIFont(name: "Pretendard-Medium", size: 17)
+
+        return header
+    }
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentedController.selectedSegmentIndex == 1 {
-            guard let comingTheaterCount = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater.count else {
+            guard let comingTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater else { return 1 }
+            // 상영 예정 영화관 없으면 없다고 표시할 셀 1개만 표시
+            if comingTheater.count == 0 {
                 return 1
             }
-//            let cellCount = Int(ceil(Double(comingTheaterCount) / 3))
-//            return cellCount
-            return comingTheaterCount
+            
+            if comingSelectedRegion == "전체" {
+                let regions = comingTheater.keys.sorted()
+                guard let comingTheaterSections = comingTheater[regions[section]] else { return 1 }
+                return comingTheaterSections.count
+            } else {
+                guard let comingSelectedRegionValues = comingTheater[comingSelectedRegion] else { return 1 }
+                return comingSelectedRegionValues.count
+            }
         } else {
-            guard let currentTheaterCount = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater.count else {
+            guard let currentTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater else { return 1 }
+            if currentTheater.count == 0 {
                 return 1
             }
-//            let cellCount = Int(ceil(Double(currentTheaterCount) / 3))
-//            return cellCount
-            return currentTheaterCount
+            
+            if currentSelectedRegion == "전체" {
+                let regions = currentTheater.keys.sorted()
+                guard let currentTheaterSections = currentTheater[regions[section]] else { return 1 }
+                return currentTheaterSections.count
+            } else {
+                guard let currentSelectedRegionValues = currentTheater[currentSelectedRegion] else { return 1 }
+                return currentSelectedRegionValues.count
+            }
         }
         
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "theaterViewCell", for: indexPath) as! TheaterViewCell
         if segmentedController.selectedSegmentIndex == 1 {
-            let cell = UITableViewCell()
-            return cell
+            if comingSelectedRegion == "전체" {
+                if let comingTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater {
+                    let regions = comingTheater.keys.sorted()
+                    guard let theater = comingTheater[regions[indexPath.section]] else { return UITableViewCell() }
+                    cell.theaterLabel.text = theater[indexPath.row]
+                    return cell
+                }
+            } else {
+                guard let comingTheaterRegionList = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater[comingSelectedRegion] else { return UITableViewCell() }
+                cell.theaterLabel.text = comingTheaterRegionList[indexPath.row]
+                return cell
+            }
         } else {
-            let cell = UITableViewCell()
-            return cell
+            if currentSelectedRegion == "전체" {
+                if let currentTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater {
+                    let regions = currentTheater.keys.sorted()
+                    guard let theater = currentTheater[regions[indexPath.section]] else { return UITableViewCell() }
+                    cell.theaterLabel.text = theater[indexPath.row]
+                    return cell
+                }
+            } else {
+                guard let currentTheaterRegionList = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater[currentSelectedRegion] else { return UITableViewCell() }
+                cell.theaterLabel.text = currentTheaterRegionList[indexPath.row]
+                return cell
+            }
         }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 
 
@@ -218,5 +322,20 @@ extension TheaterViewController {
             leadingDistance,
             underLineVeiw.widthAnchor.constraint(equalTo: segmentedController.widthAnchor, multiplier: 1 / CGFloat(segmentedController.numberOfSegments))
         ])
+    }
+}
+
+//MARK: - 지역 선택 모달 뷰 데이터 전달 delegate
+extension TheaterViewController: RegionSelectViewControllerDelegate {
+    func dismissRegionSelectViewController(selected: String, selectedCellIndex: Int, segmentSelectedIndex: Int?) {
+        if segmentSelectedIndex == 0 {
+            self.currentSelectedRegion = selected
+            self.currentSelectedCellIndex = selectedCellIndex
+        } else {
+            self.comingSelectedRegion = selected
+            self.comingSelectedCellIndex = selectedCellIndex
+        }
+        theaterTableView.reloadData()
+        print("이전 뷰: \(currentSelectedRegion), \(comingSelectedRegion), \(self.currentSelectedCellIndex), \(self.comingSelectedCellIndex)")
     }
 }

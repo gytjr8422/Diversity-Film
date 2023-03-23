@@ -85,6 +85,7 @@ final class FilmCell: UICollectionViewCell {
         newImageView.image = UIImage(named: "newImage")
         filmImageView.addSubview(newImageView)
         filmImageView.bringSubviewToFront(newImageView)
+//        filmImageView.contentMode = .scaleAspectFill
         
         newImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
