@@ -13,6 +13,7 @@ class DetailCells: UITableViewCell {
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -32,6 +33,7 @@ extension DetailCells {
             titleLabel.font = titleCustomFont
             subtitleLabel.font = subCustomFont
         }
+        subtitleLabel.isUserInteractionEnabled = true
         subtitleLabel.numberOfLines = 0
         
 //        let attrString = NSMutableAttributedString(string: subtitleLabel.text!)
@@ -65,3 +67,4 @@ extension DetailCells {
         ])
     }
 }
+

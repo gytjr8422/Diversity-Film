@@ -152,12 +152,18 @@ extension TheaterViewController: UITableViewDataSource, UITableViewDelegate {
         if segmentedController.selectedSegmentIndex == 1 {
             if comingSelectedRegion == "전체" {
                 if let comingTheaterCount = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater.count {
+                    if comingTheaterCount == 0 {
+                        return 1
+                    }
                     return comingTheaterCount
                 }
             }
         } else {
             if currentSelectedRegion == "전체" {
                 if let currentTheaterCount = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater.count {
+                    if currentTheaterCount == 0 {
+                        return 1
+                    }
                     return currentTheaterCount
                 }
             }
@@ -168,26 +174,42 @@ extension TheaterViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
         if segmentedController.selectedSegmentIndex == 1 {
-            if comingSelectedRegion == "전체" {
-                if let comingTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater {
-                    let regions = comingTheater.keys.sorted()
-                    header?.textLabel?.text = regions[section]
+            if let comingTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater {
+                if comingTheater.count == 0 {
+                    header?.textLabel?.text = "상영 예정 영화관이 존재하지 않습니다."
+                } else {
+                    if comingSelectedRegion == "전체" {
+                        let regions = comingTheater.keys.sorted()
+                        header?.textLabel?.text = regions[section]
+                    } else {
+                        header?.textLabel?.text = comingSelectedRegion
+                    }
                 }
-            } else {
-                header?.textLabel?.text = comingSelectedRegion
             }
         } else {
-            if currentSelectedRegion == "전체" {
-                if let currentTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater {
-                    let regions = currentTheater.keys.sorted()
-                    header?.textLabel?.text = regions[section]
+            if let currentTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater {
+                if currentTheater.count == 0 {
+                    header?.textLabel?.text = "현재 상영 영화관이 존재하지 않습니다."
+                } else {
+                    if currentSelectedRegion == "전체" {
+                        let regions = currentTheater.keys.sorted()
+                        header?.textLabel?.text = regions[section]
+                    } else {
+                        header?.textLabel?.text = currentSelectedRegion
+                    }
                 }
-            } else {
-                header?.textLabel?.text = currentSelectedRegion
             }
+//            if currentSelectedRegion == "전체" {
+//                if let currentTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater {
+//                    let regions = currentTheater.keys.sorted()
+//                    header?.textLabel?.text = regions[section]
+//                }
+//            } else {
+//                header?.textLabel?.text = currentSelectedRegion
+//            }
         }
         
-        header?.textLabel?.font = UIFont(name: "Pretendard-Medium", size: 17)
+        header?.textLabel?.font = UIFont(name: "Pretendard-Medium", size: 15)
 
         return header
     }
@@ -198,30 +220,32 @@ extension TheaterViewController: UITableViewDataSource, UITableViewDelegate {
             guard let comingTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater else { return 1 }
             // 상영 예정 영화관 없으면 없다고 표시할 셀 1개만 표시
             if comingTheater.count == 0 {
-                return 1
-            }
-            
-            if comingSelectedRegion == "전체" {
-                let regions = comingTheater.keys.sorted()
-                guard let comingTheaterSections = comingTheater[regions[section]] else { return 1 }
-                return comingTheaterSections.count
+                return 0
             } else {
-                guard let comingSelectedRegionValues = comingTheater[comingSelectedRegion] else { return 1 }
-                return comingSelectedRegionValues.count
+                
+                if comingSelectedRegion == "전체" {
+                    let regions = comingTheater.keys.sorted()
+                    guard let comingTheaterSections = comingTheater[regions[section]] else { return 1 }
+                    return comingTheaterSections.count
+                } else {
+                    guard let comingSelectedRegionValues = comingTheater[comingSelectedRegion] else { return 1 }
+                    return comingSelectedRegionValues.count
+                }
             }
         } else {
             guard let currentTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater else { return 1 }
             if currentTheater.count == 0 {
-                return 1
-            }
-            
-            if currentSelectedRegion == "전체" {
-                let regions = currentTheater.keys.sorted()
-                guard let currentTheaterSections = currentTheater[regions[section]] else { return 1 }
-                return currentTheaterSections.count
+                return 0
             } else {
-                guard let currentSelectedRegionValues = currentTheater[currentSelectedRegion] else { return 1 }
-                return currentSelectedRegionValues.count
+                
+                if currentSelectedRegion == "전체" {
+                    let regions = currentTheater.keys.sorted()
+                    guard let currentTheaterSections = currentTheater[regions[section]] else { return 1 }
+                    return currentTheaterSections.count
+                } else {
+                    guard let currentSelectedRegionValues = currentTheater[currentSelectedRegion] else { return 1 }
+                    return currentSelectedRegionValues.count
+                }
             }
         }
         
@@ -232,6 +256,9 @@ extension TheaterViewController: UITableViewDataSource, UITableViewDelegate {
         if segmentedController.selectedSegmentIndex == 1 {
             if comingSelectedRegion == "전체" {
                 if let comingTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].coming_theater {
+                    if comingTheater.count == 0 {
+                        return cell
+                    }
                     let regions = comingTheater.keys.sorted()
                     guard let theater = comingTheater[regions[indexPath.section]] else { return UITableViewCell() }
                     cell.theaterLabel.text = theater[indexPath.row]
@@ -245,6 +272,9 @@ extension TheaterViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             if currentSelectedRegion == "전체" {
                 if let currentTheater = boxOfficeData?.boxOfficeResult[filmIndexRow].current_theater {
+                    if currentTheater.count == 0 {
+                        return cell
+                    }
                     let regions = currentTheater.keys.sorted()
                     guard let theater = currentTheater[regions[indexPath.section]] else { return UITableViewCell() }
                     cell.theaterLabel.text = theater[indexPath.row]

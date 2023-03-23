@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6nx-hA-53I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDG-ym-CYB">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7831.2977099236641" y="91.549295774647888"/>
+            <point key="canvasLocation" x="8758.0152671755714" y="91.549295774647888"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Qt2-Vj-R9R">
@@ -77,13 +77,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXp-qT-oOF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8775" y="92"/>
+            <point key="canvasLocation" x="9701.5267175572517" y="91.549295774647888"/>
         </scene>
-        <!--Item-->
+        <!--박스오피스-->
         <scene sceneID="IbF-zA-7bd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dpB-HV-52p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bhk-rl-GTm"/>
+                    <tabBarItem key="tabBarItem" title="박스오피스" image="film" catalog="system" selectedImage="film.fill" id="bhk-rl-GTm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="SmZ-yg-pdT">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -96,28 +96,49 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1x-XG-hvT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6897" y="92"/>
+            <point key="canvasLocation" x="7823.6641221374039" y="91.549295774647888"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="gcX-V4-xBo">
+        <!--공지사항-->
+        <scene sceneID="Jwu-Kc-Vix">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6nx-hA-53I" sceneMemberID="viewController">
+                <viewController id="FpW-HC-W7E" customClass="NoticeViewController" customModule="DiversityFilm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BJR-TE-Ciq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9K7-2f-yZg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="공지사항" image="text.bubble" catalog="system" selectedImage="text.bubble.fill" id="wwf-mZ-GNT"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gua-3P-vRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7703" y="833"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="06r-Js-Ssh">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cDG-ym-CYB" customClass="MainTabBarController" customModule="DiversityFilm" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Voc-Vz-hyw">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cXR-hO-i2S">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="dpB-HV-52p" kind="relationship" relationship="viewControllers" id="3uE-tb-N9q"/>
+                        <segue destination="dpB-HV-52p" kind="relationship" relationship="viewControllers" id="ZLS-cH-Pf6"/>
+                        <segue destination="FpW-HC-W7E" kind="relationship" relationship="viewControllers" id="Ajc-i9-Eqp"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DP1-tT-bOO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GlA-0q-mDc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5977.8625954198469" y="91.549295774647888"/>
+            <point key="canvasLocation" x="6896.9465648854957" y="91.549295774647888"/>
         </scene>
     </scenes>
     <resources>
+        <image name="film" catalog="system" width="128" height="93"/>
+        <image name="film.fill" catalog="system" width="128" height="93"/>
+        <image name="text.bubble" catalog="system" width="128" height="110"/>
+        <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

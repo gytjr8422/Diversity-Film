@@ -82,17 +82,19 @@ final class FilmCell: UICollectionViewCell {
     }
     
     func setupNewImage(cellWidth: CGFloat) {
-        newImageView.image = UIImage(named: "newImage")
+        newImageView.image = UIImage(named: "new-4")
         filmImageView.addSubview(newImageView)
         filmImageView.bringSubviewToFront(newImageView)
 //        filmImageView.contentMode = .scaleAspectFill
         
         newImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            newImageView.topAnchor.constraint(equalTo: filmImageView.topAnchor, constant: cellWidth * 0.05),
-            newImageView.trailingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: cellWidth * -0.05),
-            newImageView.widthAnchor.constraint(equalToConstant: cellWidth * 0.15),
-            newImageView.heightAnchor.constraint(equalToConstant: cellWidth * 0.15)
+//            newImageView.topAnchor.constraint(equalTo: filmImageView.topAnchor, constant: cellWidth * 0.05),
+//            newImageView.trailingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: cellWidth * -0.05),
+            newImageView.topAnchor.constraint(equalTo: filmImageView.topAnchor, constant: 15),
+            newImageView.leadingAnchor.constraint(equalTo: filmImageView.leadingAnchor, constant: 15),
+            newImageView.widthAnchor.constraint(equalToConstant: 55),
+            newImageView.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
 
@@ -109,8 +111,9 @@ final class FilmCell: UICollectionViewCell {
         rankLabel.font = UIFont.systemFont(ofSize: rankLabel.frame.size.width * 0.44)
         
         rankLabel.translatesAutoresizingMaskIntoConstraints = false
-        rankLabel.leadingAnchor.constraint(equalTo: filmImageView.leadingAnchor, constant: 15).isActive = true
+//        rankLabel.leadingAnchor.constraint(equalTo: filmImageView.leadingAnchor, constant: 15).isActive = true
         rankLabel.topAnchor.constraint(equalTo: filmImageView.topAnchor, constant: 15).isActive = true
+        rankLabel.trailingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: -15).isActive = true
         rankLabel.widthAnchor.constraint(equalToConstant: cellWidth * 0.23).isActive = true
         rankLabel.heightAnchor.constraint(equalTo: rankLabel.widthAnchor).isActive = true
     }

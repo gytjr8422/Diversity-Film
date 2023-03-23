@@ -22,6 +22,7 @@ final class DetailViewController: UIViewController {
     var imageViewTextColor: UIColor?
     var filmImage: UIImage?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

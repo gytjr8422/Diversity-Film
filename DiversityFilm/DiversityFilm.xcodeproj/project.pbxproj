@@ -33,6 +33,8 @@
 		CEEB060C29C9A7A000FCFC5C /* RegionSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */; };
 		CEEB060E29CA213400FCFC5C /* RegionSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */; };
 		CEEB061029CC2E0A00FCFC5C /* TheaterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060F29CC2E0A00FCFC5C /* TheaterViewCell.swift */; };
+		CEEB061229CCC88100FCFC5C /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061129CCC88100FCFC5C /* NoticeViewController.swift */; };
+		CEEB061429CCD12100FCFC5C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061329CCD12100FCFC5C /* MainTabBarController.swift */; };
 		CEF392DE29B735A9002CEA99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */; };
 		CEF392ED29B7403E002CEA99 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EC29B7403E002CEA99 /* FirebaseAnalytics */; };
 		CEF392EF29B7403E002CEA99 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EE29B7403E002CEA99 /* FirebaseAuth */; };
@@ -72,6 +74,8 @@
 		CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectViewController.swift; sourceTree = "<group>"; };
 		CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectCell.swift; sourceTree = "<group>"; };
 		CEEB060F29CC2E0A00FCFC5C /* TheaterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewCell.swift; sourceTree = "<group>"; };
+		CEEB061129CCC88100FCFC5C /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		CEEB061329CCD12100FCFC5C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEF392F429B85B46002CEA99 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEF392F629B86847002CEA99 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -146,10 +150,12 @@
 		CEF392F829B96990002CEA99 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB061329CCD12100FCFC5C /* MainTabBarController.swift */,
 				CE1B9A8429B713290090450D /* MainViewController.swift */,
 				CEF392FA29B96A56002CEA99 /* DetailViewController.swift */,
 				CEEB05CB29C7080B00FCFC5C /* TheaterViewController.swift */,
 				CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */,
+				CEEB061129CCC88100FCFC5C /* NoticeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -273,9 +279,11 @@
 				CE1B9A9629B72EEE0090450D /* FilmCell.swift in Sources */,
 				CEF392F729B86847002CEA99 /* Model.swift in Sources */,
 				CEEB05C629C5816A00FCFC5C /* SeparatorCell.swift in Sources */,
+				CEEB061429CCD12100FCFC5C /* MainTabBarController.swift in Sources */,
 				CE1B9A8129B713290090450D /* AppDelegate.swift in Sources */,
 				CEEB060C29C9A7A000FCFC5C /* RegionSelectViewController.swift in Sources */,
 				CE1B9A8329B713290090450D /* SceneDelegate.swift in Sources */,
+				CEEB061229CCC88100FCFC5C /* NoticeViewController.swift in Sources */,
 				CEF392FB29B96A56002CEA99 /* DetailViewController.swift in Sources */,
 				CE5FE15129C0D9AA006D8434 /* DetailImageCell.swift in Sources */,
 			);

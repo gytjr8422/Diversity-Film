@@ -109,7 +109,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                 cell.filmNameLabel.font = customFont
             }
             
-            print("\(movieNm): \(movieNm.count)")
             if movieNm.count > 20 {
                 if let customFont = UIFont(name: "Pretendard-Medium", size: 16) {
                     cell.filmNameLabel.font = customFont
@@ -164,7 +163,7 @@ extension MainViewController {
             cell.noImageLabel.font = customFont
         }
         
-        cell.noImageLabel.text = "영화 <\(String(describing: cell.filmNameLabel.text!))>의 포스터를\n불러올 수 없습니다.\n\n화면을 터치하면\n영화 상세정보를 확인할 수 있습니다."
+        cell.noImageLabel.text = "영화 <\(String(describing: cell.filmNameLabel.text!))>의 포스터를\n불러올 수 없습니다.\n\n화면을 터치하면\n영화 상세정보를\n확인할 수 있습니다."
         
         if let noImageText = cell.noImageLabel.text {
             let attrString = NSMutableAttributedString(string: noImageText)
