@@ -24,3 +24,15 @@ struct BoxOfficeResult: Codable {
     let current_theater: [String: [String]]
     let coming_theater: [String: [String]]
 }
+
+struct AllFilms: Codable {
+    let movieNm: String
+    let nations: [String]
+    let genres: [String]
+    let directors: [String]
+    let actors: [String]
+    let imgURL: String
+    let synopsis: String
+    let current_theater: [String: [String]]
+    let coming_theater: [String: [String]]
+}

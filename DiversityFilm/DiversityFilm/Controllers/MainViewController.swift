@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-final class MainViewController: UIViewController {
+final class MainViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var filmCollectionView: UICollectionView!
     
@@ -25,6 +25,8 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         title = "박스오피스 순위"
+        
+        navigationController?.delegate = self
         
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: filmCollectionView.frame.width, height: filmCollectionView.frame.height)
@@ -64,6 +66,7 @@ final class MainViewController: UIViewController {
             nextVC.imageViewTextColor = selectedCell.filmNameLabel.textColor
         }
     }
+    
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -269,3 +272,4 @@ extension MainViewController {
         }
     }
 }
+

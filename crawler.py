@@ -10,6 +10,8 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
+from api_keys import KOBIS_API_KEY
+
 
 def film_crawler():
     # try:
@@ -51,7 +53,7 @@ def film_crawler():
     # WebDriver로 크롬 브라우저 열기
     driver = webdriver.Chrome(options=options)
 
-    api_key = "29f421dd430ee1218c9b56152e0db1bb"
+    api_key = KOBIS_API_KEY
     film_url = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
     film_info_url = "https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?"
 
@@ -138,9 +140,13 @@ def film_crawler():
         url = thumb.get_attribute("href") # 이미지 url 데이터
         print(url)
 
+        
+
         # 시놉시스 가져오기
-        synopsis = driver.find_element(By.CLASS_NAME, 'desc_info').text # 시놉시스 데이터
+        # synopsis = driver.find_element(By.CLASS_NAME, 'desc_info').text # 시놉시스 데이터
+        synopsis = driver.find_element(By.CSS_SELECTOR, 'p.desc_info').text
         print(synopsis)
+
 
         screen_info = driver.find_element(By.XPATH, '//a[text()="상영현황정보"]')
         screen_info.click()

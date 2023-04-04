@@ -35,6 +35,12 @@
 		CEEB061029CC2E0A00FCFC5C /* TheaterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB060F29CC2E0A00FCFC5C /* TheaterViewCell.swift */; };
 		CEEB061229CCC88100FCFC5C /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061129CCC88100FCFC5C /* NoticeViewController.swift */; };
 		CEEB061429CCD12100FCFC5C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061329CCD12100FCFC5C /* MainTabBarController.swift */; };
+		CEEB061629CD831000FCFC5C /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061529CD831000FCFC5C /* NoticeCell.swift */; };
+		CEEB061829CDC10200FCFC5C /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061729CDC10200FCFC5C /* NoticeDetailViewController.swift */; };
+		CEEB061A29CEB16600FCFC5C /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CEEB061929CEB16600FCFC5C /* Secrets.xcconfig */; };
+		CEEB061C29CED15E00FCFC5C /* NoticeDetailCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061B29CED15E00FCFC5C /* NoticeDetailCells.swift */; };
+		CEEB061E29CF187800FCFC5C /* NaverSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061D29CF187800FCFC5C /* NaverSearchViewController.swift */; };
+		CEEB062029D03F1600FCFC5C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB061F29D03F1600FCFC5C /* DataModel.swift */; };
 		CEF392DE29B735A9002CEA99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */; };
 		CEF392ED29B7403E002CEA99 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EC29B7403E002CEA99 /* FirebaseAnalytics */; };
 		CEF392EF29B7403E002CEA99 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEF392EE29B7403E002CEA99 /* FirebaseAuth */; };
@@ -43,6 +49,9 @@
 		CEF392F529B85B46002CEA99 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF392F429B85B46002CEA99 /* Constants.swift */; };
 		CEF392F729B86847002CEA99 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF392F629B86847002CEA99 /* Model.swift */; };
 		CEF392FB29B96A56002CEA99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF392FA29B96A56002CEA99 /* DetailViewController.swift */; };
+		CEF59CBD29D0A27F00545971 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF59CBC29D0A27F00545971 /* SearchCell.swift */; };
+		CEF59CBF29D17E9E00545971 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF59CBE29D17E9E00545971 /* SearchViewController.swift */; };
+		CEF59CC129D5609C00545971 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF59CC029D5609C00545971 /* SearchDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,10 +85,19 @@
 		CEEB060F29CC2E0A00FCFC5C /* TheaterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewCell.swift; sourceTree = "<group>"; };
 		CEEB061129CCC88100FCFC5C /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		CEEB061329CCD12100FCFC5C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		CEEB061529CD831000FCFC5C /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
+		CEEB061729CDC10200FCFC5C /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
+		CEEB061929CEB16600FCFC5C /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		CEEB061B29CED15E00FCFC5C /* NoticeDetailCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailCells.swift; sourceTree = "<group>"; };
+		CEEB061D29CF187800FCFC5C /* NaverSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverSearchViewController.swift; sourceTree = "<group>"; };
+		CEEB061F29D03F1600FCFC5C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CEF392DD29B735A9002CEA99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEF392F429B85B46002CEA99 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEF392F629B86847002CEA99 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CEF392FA29B96A56002CEA99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CEF59CBC29D0A27F00545971 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		CEF59CBE29D17E9E00545971 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CEF59CC029D5609C00545971 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +147,8 @@
 				CEF392F629B86847002CEA99 /* Model.swift */,
 				CE5FE14A29BB2177006D8434 /* LoadImageManager.swift */,
 				CEEB05C129C36F7900FCFC5C /* SetupCellsManager.swift */,
+				CEEB061929CEB16600FCFC5C /* Secrets.xcconfig */,
+				CEEB061F29D03F1600FCFC5C /* DataModel.swift */,
 			);
 			path = DiversityFilm;
 			sourceTree = "<group>";
@@ -156,6 +176,10 @@
 				CEEB05CB29C7080B00FCFC5C /* TheaterViewController.swift */,
 				CEEB060B29C9A7A000FCFC5C /* RegionSelectViewController.swift */,
 				CEEB061129CCC88100FCFC5C /* NoticeViewController.swift */,
+				CEEB061729CDC10200FCFC5C /* NoticeDetailViewController.swift */,
+				CEEB061D29CF187800FCFC5C /* NaverSearchViewController.swift */,
+				CEF59CBE29D17E9E00545971 /* SearchViewController.swift */,
+				CEF59CC029D5609C00545971 /* SearchDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +197,9 @@
 				CEEB05C929C6F1CF00FCFC5C /* TheaterButtonCell.swift */,
 				CEEB060D29CA213400FCFC5C /* RegionSelectCell.swift */,
 				CEEB060F29CC2E0A00FCFC5C /* TheaterViewCell.swift */,
+				CEEB061529CD831000FCFC5C /* NoticeCell.swift */,
+				CEEB061B29CED15E00FCFC5C /* NoticeDetailCells.swift */,
+				CEF59CBC29D0A27F00545971 /* SearchCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +273,7 @@
 			files = (
 				CEEB060529C8312600FCFC5C /* Pretendard-Bold.otf in Resources */,
 				CEEB05F629C82D1D00FCFC5C /* SCDream6.otf in Resources */,
+				CEEB061A29CEB16600FCFC5C /* Secrets.xcconfig in Resources */,
 				CE1B9A8D29B7132A0090450D /* LaunchScreen.storyboard in Resources */,
 				CEEB060229C8312600FCFC5C /* Pretendard-ExtraBold.otf in Resources */,
 				CEEB060429C8312600FCFC5C /* Pretendard-Light.otf in Resources */,
@@ -269,22 +297,30 @@
 				CEEB061029CC2E0A00FCFC5C /* TheaterViewCell.swift in Sources */,
 				CEEB05C829C6DD9A00FCFC5C /* DetailCells.swift in Sources */,
 				CEEB05CA29C6F1CF00FCFC5C /* TheaterButtonCell.swift in Sources */,
+				CEF59CBF29D17E9E00545971 /* SearchViewController.swift in Sources */,
 				CEF392F529B85B46002CEA99 /* Constants.swift in Sources */,
 				CEEB060E29CA213400FCFC5C /* RegionSelectCell.swift in Sources */,
+				CEEB062029D03F1600FCFC5C /* DataModel.swift in Sources */,
 				CEEB05CC29C7080B00FCFC5C /* TheaterViewController.swift in Sources */,
+				CEEB061C29CED15E00FCFC5C /* NoticeDetailCells.swift in Sources */,
+				CEEB061629CD831000FCFC5C /* NoticeCell.swift in Sources */,
 				CEEB05C229C36F7900FCFC5C /* SetupCellsManager.swift in Sources */,
 				CE5FE14B29BB2177006D8434 /* LoadImageManager.swift in Sources */,
 				CEEB05C429C3764000FCFC5C /* DetailSubtitleCell.swift in Sources */,
 				CE1B9A8529B713290090450D /* MainViewController.swift in Sources */,
+				CEF59CC129D5609C00545971 /* SearchDetailViewController.swift in Sources */,
+				CEF59CBD29D0A27F00545971 /* SearchCell.swift in Sources */,
 				CE1B9A9629B72EEE0090450D /* FilmCell.swift in Sources */,
 				CEF392F729B86847002CEA99 /* Model.swift in Sources */,
 				CEEB05C629C5816A00FCFC5C /* SeparatorCell.swift in Sources */,
 				CEEB061429CCD12100FCFC5C /* MainTabBarController.swift in Sources */,
 				CE1B9A8129B713290090450D /* AppDelegate.swift in Sources */,
 				CEEB060C29C9A7A000FCFC5C /* RegionSelectViewController.swift in Sources */,
+				CEEB061E29CF187800FCFC5C /* NaverSearchViewController.swift in Sources */,
 				CE1B9A8329B713290090450D /* SceneDelegate.swift in Sources */,
 				CEEB061229CCC88100FCFC5C /* NoticeViewController.swift in Sources */,
 				CEF392FB29B96A56002CEA99 /* DetailViewController.swift in Sources */,
+				CEEB061829CDC10200FCFC5C /* NoticeDetailViewController.swift in Sources */,
 				CE5FE15129C0D9AA006D8434 /* DetailImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +349,7 @@
 /* Begin XCBuildConfiguration section */
 		CE1B9A8F29B7132A0090450D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEEB061929CEB16600FCFC5C /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -427,6 +464,7 @@
 		};
 		CE1B9A9229B7132A0090450D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEEB061929CEB16600FCFC5C /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

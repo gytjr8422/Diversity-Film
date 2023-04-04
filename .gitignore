@@ -88,3 +88,8 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# Python 관련
+api_keys.py
+serviceAccountKey.json
+awspwd.pem

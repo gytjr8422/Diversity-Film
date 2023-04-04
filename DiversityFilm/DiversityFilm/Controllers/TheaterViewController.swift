@@ -213,7 +213,7 @@ extension TheaterViewController: UITableViewDataSource, UITableViewDelegate {
 
         return header
     }
-    
+
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentedController.selectedSegmentIndex == 1 {

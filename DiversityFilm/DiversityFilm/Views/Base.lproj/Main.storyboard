@@ -108,12 +108,12 @@
                         <viewLayoutGuide key="safeArea" id="9K7-2f-yZg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="공지사항" image="text.bubble" catalog="system" selectedImage="text.bubble.fill" id="wwf-mZ-GNT"/>
+                    <navigationItem key="navigationItem" title="공지사항" id="0nx-2y-M3L"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gua-3P-vRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7703" y="833"/>
+            <point key="canvasLocation" x="9554.961832061068" y="832.3943661971831"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="06r-Js-Ssh">
@@ -121,22 +121,81 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cDG-ym-CYB" customClass="MainTabBarController" customModule="DiversityFilm" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cXR-hO-i2S">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="dpB-HV-52p" kind="relationship" relationship="viewControllers" id="ZLS-cH-Pf6"/>
-                        <segue destination="FpW-HC-W7E" kind="relationship" relationship="viewControllers" id="Ajc-i9-Eqp"/>
+                        <segue destination="ipt-OD-RxC" kind="relationship" relationship="viewControllers" id="Ajc-i9-Eqp"/>
+                        <segue destination="gXc-Je-zVi" kind="relationship" relationship="viewControllers" id="Lcr-Eb-sqm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GlA-0q-mDc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6896.9465648854957" y="91.549295774647888"/>
         </scene>
+        <!--영화 검색-->
+        <scene sceneID="pzT-TS-ZI7">
+            <objects>
+                <viewController id="Dte-a6-Fwd" customClass="SearchViewController" customModule="DiversityFilm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sSx-MZ-kEy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hxq-rq-tr3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="영화 검색" id="7r9-YH-43b"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bq4-0i-Eap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7214.5038167938928" y="831.69014084507046"/>
+        </scene>
+        <!--공지사항-->
+        <scene sceneID="eQh-T6-H3a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ipt-OD-RxC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="공지사항" image="text.bubble" catalog="system" selectedImage="text.bubble.fill" id="wwf-mZ-GNT"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="s7F-jV-CL0">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FpW-HC-W7E" kind="relationship" relationship="rootViewController" id="n2u-oI-xMF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTY-NK-pXR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8628.2442748091598" y="832.3943661971831"/>
+        </scene>
+        <!--영화 검색-->
+        <scene sceneID="QHH-em-2s4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gXc-Je-zVi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="영화 검색" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle.fill" id="DeQ-q5-aha"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ov9-4v-RVN">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dte-a6-Fwd" kind="relationship" relationship="rootViewController" id="vIL-NW-RBj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l7O-DV-Stc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6287.7862595419847" y="831.69014084507046"/>
+        </scene>
     </scenes>
     <resources>
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="film.fill" catalog="system" width="128" height="93"/>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
         <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">

@@ -70,11 +70,9 @@ extension RegionSelectViewController: UITableViewDataSource, UITableViewDelegate
             let regions = currentTheaterDict.keys.sorted()
             if indexPath.row == 0 {
                 delegate?.dismissRegionSelectViewController(selected: "전체", selectedCellIndex: indexPath.row, segmentSelectedIndex: segmentSelectedIndex)
-                print("======")
             } else {
                 let selected = regions[indexPath.row - 1]
                 delegate?.dismissRegionSelectViewController(selected: selected, selectedCellIndex: indexPath.row, segmentSelectedIndex: segmentSelectedIndex)
-                print("-----")
             }
             dismiss(animated: true)
 
