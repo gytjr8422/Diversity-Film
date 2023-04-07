@@ -68,6 +68,7 @@ extension NaverSearchViewController: UITextFieldDelegate {
 }
 
 extension NaverSearchViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let searchData = searchData {
             return searchData.items.count
@@ -83,6 +84,7 @@ extension NaverSearchViewController: UITableViewDataSource {
 }
 
 extension NaverSearchViewController {
+    
     func getNaverData(filmName: String?) {
         guard let filmName = filmName else { return }
         let naverURL = "https://openapi.naver.com/v1/search/movie?display=30&query="
@@ -133,6 +135,7 @@ extension NaverSearchViewController {
 
 //MARK: - 뷰 오토레이아웃
 extension NaverSearchViewController {
+    
     private func setupViews() {
         navigationItem.largeTitleDisplayMode = .never
         let appearance = UINavigationBarAppearance()

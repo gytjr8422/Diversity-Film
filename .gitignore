@@ -93,3 +93,7 @@ iOSInjectionProject/
 api_keys.py
 serviceAccountKey.json
 awspwd.pem
+
+# api
+DiversityFilm/DiversityFilm/Secrets.xcconfig
+

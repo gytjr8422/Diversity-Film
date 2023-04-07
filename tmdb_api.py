@@ -90,7 +90,7 @@ for movie in kobis_boxoffice_result['boxOfficeResult']['dailyBoxOfficeList']:
             actor_name = re.sub(r"[^a-z]", "", actor_name)
             if actor_name in actor_data_english:
                 synopsis = tmdb_info_result["overview"]
-                poster_url = "https://image.tmdb.org/t/p/w300/" + tmdb_info_result["poster_path"]
+                poster_url = "https://image.tmdb.org/t/p/w300" + tmdb_info_result["poster_path"]
                 
                 if len(director_data) == 0:
                     for crew in tmdb_info_result['credits']['crew']:
@@ -104,7 +104,7 @@ for movie in kobis_boxoffice_result['boxOfficeResult']['dailyBoxOfficeList']:
             dir_name = re.sub(r"[^a-z]", "", dir_name)
             if dir_name in director_english_data:
                 synopsis = tmdb_info_result["overview"]
-                poster_url = "https://image.tmdb.org/t/p/w300/" + tmdb_info_result["poster_path"]
+                poster_url = "https://image.tmdb.org/t/p/w300" + tmdb_info_result["poster_path"]
 
                 if len(actor_data) == 0:
                     cnt = 0
