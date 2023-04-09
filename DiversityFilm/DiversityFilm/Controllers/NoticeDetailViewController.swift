@@ -40,9 +40,7 @@ class NoticeDetailViewController: UIViewController {
         self.noticeDetailTableView.register(NoticeTitleCell.self, forCellReuseIdentifier: "noticeTitleCell")
         self.noticeDetailTableView.register(NoticeSeparatorCell.self, forCellReuseIdentifier: "noticeSeparatorCell")
         self.noticeDetailTableView.register(NoticeContentCell.self, forCellReuseIdentifier: "noticeContentCell")
-    
     }
-    
 }
 
 extension NoticeDetailViewController: UITableViewDataSource {

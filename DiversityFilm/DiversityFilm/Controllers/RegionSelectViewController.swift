@@ -87,7 +87,6 @@ extension RegionSelectViewController: UITableViewDataSource, UITableViewDelegate
             }
             dismiss(animated: true)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
