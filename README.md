@@ -15,6 +15,7 @@ UIKit과 Firestore를 사용한 iOS 앱
 ### 1. 메인 페이지
  
 -  Collection View를 활용한 박스오피스 순위
+
 <img src="https://user-images.githubusercontent.com/74528858/230960890-4960bf24-07d5-40f2-ac3f-c0f7a8d37d9f.PNG"  width="270" height="585"> <img src="https://user-images.githubusercontent.com/74528858/230962051-cef3b903-448f-4dd6-9cc2-269a6111ddeb.PNG"  width="270" height="585">
 
 ### 2. 영화 상세정보 페이지
