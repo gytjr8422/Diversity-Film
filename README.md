@@ -49,4 +49,12 @@ UIKit과 Firestore를 사용한 iOS 앱
 
 ### 6. Python을 활용한 영화 데이터 저장(API, 크롤링)
 
--  
+a. crawler.py
+
+-  영화진흥위원회 API와 Selenium을 활용한 데이터 크롤링
+-  Firestore 데이터베이스에 저장
+
+b. tmdb_api.py
+
+-  TMDB API를 활용한 데이터 가져오기
+-  상영관 현황은 제공되지 않기 때문에 크롤링 방법 채택
