@@ -33,8 +33,20 @@ UIKit과 Firestore를 사용한 iOS 앱
 
 <img src="https://user-images.githubusercontent.com/74528858/230962565-f58c1dfc-45f1-43e7-8409-6c790c73db1d.PNG"  width="270" height="585">  <img src="https://user-images.githubusercontent.com/74528858/230962604-dab6b42b-66c2-4838-87c1-8503921159ab.PNG"  width="270" height="585">  <img src="https://user-images.githubusercontent.com/74528858/230962626-88eaffc0-1739-4d5c-beeb-20aceb74cbac.PNG"  width="270" height="585">  <img src="https://user-images.githubusercontent.com/74528858/230962641-113343e2-66ff-4421-b651-67516fe9561d.PNG"  width="270" height="585">
 
-### 4. 검색 화면
+### 4. 공지사항 화면
+
+-  데이터베이스에 저장된 공지사항 정보 제공
+
+<img src="https://user-images.githubusercontent.com/74528858/231073902-68de0d14-a8d1-4b97-9367-fad7d0fc852d.PNG"  width="270" height="585"> <img src="https://user-images.githubusercontent.com/74528858/231073909-9f1831c3-50cd-407d-8e38-bc374b410ce0.PNG"  width="270" height="585">
+
+
+### 5. 검색 화면
 
 -  영화 제목으로 검색 기능
 
 <img src="https://user-images.githubusercontent.com/74528858/230963055-219037d2-c579-43ba-ba13-ce738a86014a.PNG"  width="270" height="585">  <img src="https://user-images.githubusercontent.com/74528858/230963074-064e4f11-e3d9-4ab9-b409-1849a4a7001e.PNG"  width="270" height="585">
+
+
+### 6. Python을 활용한 영화 데이터 저장(API, 크롤링)
+
+-  

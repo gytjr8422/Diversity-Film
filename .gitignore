@@ -93,6 +93,9 @@ iOSInjectionProject/
 api_keys.py
 serviceAccountKey.json
 awspwd.pem
+firbase_test.py
+notice.py
+total_crawler.py
 
 # API Key
 DiversityFilm/DiversityFilm/Secrets.xcconfig
