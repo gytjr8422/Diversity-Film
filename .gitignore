@@ -101,3 +101,6 @@ __pycache__
 # API Key
 DiversityFilm/DiversityFilm/Secrets.xcconfig
 
+# mac
+.DS_Store
+DiversityFilm/.DS_Store
