@@ -96,6 +96,7 @@ awspwd.pem
 firbase_test.py
 notice.py
 total_crawler.py
+__pycache__
 
 # API Key
 DiversityFilm/DiversityFilm/Secrets.xcconfig
