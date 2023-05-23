@@ -52,6 +52,7 @@ def film_crawler():
 
     # WebDriver로 크롬 브라우저 열기
     driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Chrome()
 
     api_key = KOBIS_API_KEY
     film_url = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
@@ -66,6 +67,7 @@ def film_crawler():
 
     response = requests.get(film_url + f"key={api_key}&multiMovieYn=Y&targetDt={yesterday}")
     film_result = response.json()
+    print(f"https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key={api_key}&multiMovieYn=Y&targetDt={yesterday}")
 
     save_count = 0
     for movie in film_result['boxOfficeResult']['dailyBoxOfficeList']:
@@ -107,15 +109,20 @@ def film_crawler():
                 genre = film_info_result['movieInfoResult']['movieInfo']['genres'][i]['genreNm']
                 genres_data.append(genre)
         
+        print(movieNm, prdtYear)
         print(director_data, actor_data, nations_data, genres_data)
 
         # 크롤링 시작
         # 검색 필드에 영화 제목 입력
+
         title_field = driver.find_element(By.NAME, 'sMovieNm')
         title_field.send_keys(movieNm)
 
         # 감독 입력
         director_field = driver.find_element(By.NAME, 'sDirector')
+        if movieNm == "토리와 로키타" or movieNm == "말이야 바른 말이지":
+            # director = director_data[1]
+            director = " "
         director_field.send_keys(director)
 
         prdtYearS_field = driver.find_element(By.NAME, 'sPrdtYearS')
@@ -128,7 +135,8 @@ def film_crawler():
         search_button = driver.find_element(By.CSS_SELECTOR, "button.btn_blue")
         # search_button.click()
         search_button.send_keys(Keys.RETURN)
-
+        
+        time.sleep(2)
         # 검색 결과 중 첫 번째 목록 클릭
         movie_button = driver.find_element(By.CLASS_NAME, "fst")
         movie_button.click()
@@ -228,3 +236,4 @@ def film_crawler():
     #     logging.error(e)
 
 film_crawler()
+print("코드 종료")

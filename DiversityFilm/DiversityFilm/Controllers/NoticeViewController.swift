@@ -50,6 +50,7 @@ class NoticeViewController: UIViewController, UINavigationControllerDelegate {
     
 }
 
+
 extension NoticeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -80,6 +81,7 @@ extension NoticeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
+
 
 extension NoticeViewController {
     func getNoticeData() {

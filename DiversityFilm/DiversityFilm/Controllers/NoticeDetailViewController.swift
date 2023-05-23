@@ -43,6 +43,7 @@ class NoticeDetailViewController: UIViewController {
     }
 }
 
+
 extension NoticeDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -75,6 +76,5 @@ extension NoticeDetailViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    
+
 }

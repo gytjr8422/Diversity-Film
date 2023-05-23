@@ -56,14 +56,16 @@ final class MainViewController: UIViewController, UINavigationControllerDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.detailSegue, let nextVC = segue.destination as? DetailViewController, let indexPath = filmCollectionView.indexPathsForSelectedItems?.first {
+        if segue.identifier == K.detailSegue, let detailVC = segue.destination as? DetailViewController, let indexPath = filmCollectionView.indexPathsForSelectedItems?.first {
+            
             let selectedCell = filmCollectionView.cellForItem(at: indexPath) as! FilmCell
-            nextVC.filmTitle = selectedCell.filmNameLabel.text
-            nextVC.boxOfficeData = boxOfficeData
-            nextVC.filmIndexRow = indexPath.row
-            nextVC.filmImage = selectedCell.filmImageView.image
-            nextVC.backgroundColor = selectedCell.labelView.backgroundColor
-            nextVC.imageViewTextColor = selectedCell.filmNameLabel.textColor
+            
+            detailVC.filmTitle = selectedCell.filmNameLabel.text
+            detailVC.boxOfficeData = boxOfficeData
+            detailVC.filmIndexRow = indexPath.row
+            detailVC.filmImage = selectedCell.filmImageView.image
+            detailVC.backgroundColor = selectedCell.labelView.backgroundColor
+            detailVC.imageViewTextColor = selectedCell.filmNameLabel.textColor
         }
     }
     
@@ -92,14 +94,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.rankLabel.text = ""
         cell.newImageView.image = nil
         cell.noImageLabel.text = ""
-        
-//        cell.filmImageView.layer.shadowOffset = CGSizeMake(0, 0)
-//        cell.filmImageView.layer.shadowColor = UIColor.black.cgColor
-//        cell.filmImageView.layer.shadowOpacity = 0.23
-//
-//        cell.labelView.layer.shadowOffset = CGSizeMake(0, 0)
-//        cell.labelView.layer.shadowColor = UIColor.black.cgColor
-//        cell.labelView.layer.shadowOpacity = 0.23
         
         if let movieNm = self.boxOfficeData?.boxOfficeResult[indexPath.row].movieNm,
            let url = self.boxOfficeData?.boxOfficeResult[indexPath.row].imgURL,
@@ -134,11 +128,9 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                             } else {
                                 cell.filmImageView.image = image
                                 cell.activityIndicator.removeFromSuperview()
-                                
+
                                 let backgroundColor = cell.filmImageView.image?.averageColor
                                 cell.labelView.backgroundColor = backgroundColor
-                                //                        cell.contentView.backgroundColor = backgroundColor
-                                //                        self.labelTextColor = self.setupLabelColor(backgroundColor: backgroundColor)
                                 cell.filmNameLabel.textColor = self.setupCellsManager.setupLabelColor(backgroundColor: backgroundColor)
                                 if oldAndNew == "NEW" {
                                     cell.setupNewImage(cellWidth: cell.frame.size.width)
@@ -175,7 +167,7 @@ extension MainViewController {
             attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
             cell.noImageLabel.attributedText = attrString
         }
-        
+
         cell.noImageLabel.textAlignment = .center
         cell.noImageLabel.textColor = UIColor(rgb: 0xFCF6F5)
         cell.filmImageView.addSubview(cell.noImageLabel)
@@ -186,7 +178,7 @@ extension MainViewController {
             cell.noImageLabel.leadingAnchor.constraint(equalTo: cell.filmImageView.leadingAnchor, constant: 40),
             cell.noImageLabel.trailingAnchor.constraint(equalTo: cell.filmImageView.trailingAnchor, constant: -40)
         ])
-        
+
         cell.filmImageView.image = nil
         cell.filmImageView.backgroundColor = UIColor(rgb: 0x7b9acc)
         cell.labelView.backgroundColor = UIColor(rgb: 0x7b9acc)
@@ -214,7 +206,7 @@ extension MainViewController {
     func getTitleDateString(dateString: String) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
-        guard let date = dateFormatter.date(from: dateString) else { return ""}
+        guard let date = dateFormatter.date(from: dateString) else { return "" }
         
         dateFormatter.dateFormat = "(yyyy년 M월 d일 기준)"
         let dateString = dateFormatter.string(from: date)

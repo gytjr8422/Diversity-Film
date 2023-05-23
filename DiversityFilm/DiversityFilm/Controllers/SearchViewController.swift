@@ -149,6 +149,7 @@ extension SearchViewController {
     }
 }
 
+
 //MARK: - 뷰 오토레이아웃
 extension SearchViewController {
     private func setupViews() {
@@ -159,7 +160,7 @@ extension SearchViewController {
         appearance.shadowColor = .clear // 내비게이션 바 밑줄 없애기
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance
-        
+
         self.searchImageView.image = UIImage(systemName: "magnifyingglass")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
         self.textField.clearButtonMode = .always
         self.textField.placeholder = "정확한 영화 제목을 입력해주세요."

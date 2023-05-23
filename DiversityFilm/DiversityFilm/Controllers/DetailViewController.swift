@@ -48,7 +48,7 @@ final class DetailViewController: UIViewController {
         if scrollView.contentOffset.y < 0 {
             scrollView.contentOffset.y = 0
         }
-    }
+    }                        
 
     @objc func buttonTapped() {
         let theaterViewController = TheaterViewController()
@@ -78,6 +78,13 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             appearance.configureWithOpaqueBackground()
             
             return setupCellsManager.setupImageCell(cell: cell, boxOfficeData: boxOfficeData, indexRow: filmIndexRow, appearance: appearance, navigationItem: self.navigationItem, image: filmImage, backgroundColor: backgroundColor, imageViewTextColor: imageViewTextColor)
+        
+        case 1:
+            let cell = TheaterButtonCell()
+            cell.theaterButton.setTitleColor(imageViewTextColor, for: .normal)
+            cell.theaterButton.backgroundColor = backgroundColor
+            cell.theaterButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            return cell
 
         case 3, 5, 7:
             let cell = DetailCells()
@@ -85,13 +92,6 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 2, 4, 6, 8:
             let cell = SeparatorCell()
-            return cell
-            
-        case 1:
-            let cell = TheaterButtonCell()
-            cell.theaterButton.setTitleColor(imageViewTextColor, for: .normal)
-            cell.theaterButton.backgroundColor = backgroundColor
-            cell.theaterButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell
             
         default:
