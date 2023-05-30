@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-class NoticeViewController: UIViewController, UINavigationControllerDelegate {
+final class NoticeViewController: UIViewController, UINavigationControllerDelegate {
     
     let noticeTableView = UITableView()
     let db = Firestore.firestore()

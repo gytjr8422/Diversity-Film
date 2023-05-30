@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegionSelectViewController: UIViewController {
+final class RegionSelectViewController: UIViewController {
     
     let regionTableView = UITableView()
     var currentTheaterDict: Dictionary<String, Array<String>>?

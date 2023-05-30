@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NaverSearchViewController: UIViewController, UIGestureRecognizerDelegate {
+final class NaverSearchViewController: UIViewController, UIGestureRecognizerDelegate {
 
     let textField = UITextField()
     let searchImageView = UIImageView()

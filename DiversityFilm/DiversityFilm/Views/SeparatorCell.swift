@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SeparatorCell: UITableViewCell {
+final class SeparatorCell: UITableViewCell {
     
     let separatorView = UIView()
     

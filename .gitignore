@@ -96,6 +96,8 @@ awspwd.pem
 firbase_test.py
 notice.py
 total_crawler.py
+tmdb_api.py
+crawler.py
 __pycache__
 
 # API Key

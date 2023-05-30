@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TheaterViewCell: UITableViewCell {
+final class TheaterViewCell: UITableViewCell {
     
     let theaterLabel = UILabel()
    

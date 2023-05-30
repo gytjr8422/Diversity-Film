@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoticeCell: UITableViewCell {
+final class NoticeCell: UITableViewCell {
     
     let titleLabel = UILabel()
     let subTitleLabel = UILabel()

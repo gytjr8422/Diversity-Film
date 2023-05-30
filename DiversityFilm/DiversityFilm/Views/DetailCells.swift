@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailCells: UITableViewCell {
+final class DetailCells: UITableViewCell {
     
     let stackView = UIStackView()
     let titleLabel = UILabel()

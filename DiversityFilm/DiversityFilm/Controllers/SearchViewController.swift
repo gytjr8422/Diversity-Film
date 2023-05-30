@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
+final class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
 
     let textField = UITextField()
     let searchImageView = UIImageView()

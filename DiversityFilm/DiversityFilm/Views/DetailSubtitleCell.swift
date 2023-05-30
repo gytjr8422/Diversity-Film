@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailSubtitleCell: UITableViewCell {
+final class DetailSubtitleCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: K.DetailCells.directorActorIdentifier)

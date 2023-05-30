@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchResultCell: UITableViewCell {
+final class SearchResultCell: UITableViewCell {
     
     var filmNameLabel = UILabel()
     var filmImageView = UIImageView()

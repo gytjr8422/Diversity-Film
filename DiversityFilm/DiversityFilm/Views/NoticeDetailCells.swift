@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoticeTitleCell: UITableViewCell {
+final class NoticeTitleCell: UITableViewCell {
     
     let stackView = UIStackView()
     let titleLabel = UILabel()

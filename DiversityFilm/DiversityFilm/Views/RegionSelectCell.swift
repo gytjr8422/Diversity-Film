@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegionSelectCell: UITableViewCell {
+final class RegionSelectCell: UITableViewCell {
     
     let regionLabel = UILabel()
     let checkImage = UIImageView()

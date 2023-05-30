@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TheaterButtonCell: UITableViewCell {
+final class TheaterButtonCell: UITableViewCell {
     
     let theaterButton = UIButton()
     
